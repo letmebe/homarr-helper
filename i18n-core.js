@@ -3,7 +3,7 @@
 // 兼容 extension pages (window) 和 service workers (self)
 
 (function () {
-  const scope = typeof window !== 'undefined' ? window : self;
+  const scope = self;
   const caches = {};
   let currentLang = null;
 
