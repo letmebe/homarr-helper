@@ -3,7 +3,7 @@
 
 // 初始化 i18n（加载语言资源）
 importScripts('i18n-core.js');
-const _bgInit = window.I18N.initI18n();
+const _bgInit = self.I18N.initI18n();
 
 // ── 监听来自 popup 的消息 ──
 chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
