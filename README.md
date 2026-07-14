@@ -2,12 +2,17 @@
 
 一键将当前浏览页面添加到 [Homarr](https://github.com/homarr-labs/homarr) 导航面板的浏览器扩展。
 
+A browser extension that adds the current page to your [Homarr](https://github.com/homarr-labs/homarr) dashboard with a single click.
+
+> English README: [doc/README.md](doc/README.md)
+
 ## 功能
 
 - 点击扩展图标，弹出编辑框，自动预填页面标题、网址和图标
 - 所有字段均可手动修改后确认添加
 - 自动记忆上次使用的面板，也可手动切换
 - 支持 Chrome / Edge / Brave 等 Chromium 内核浏览器
+- 界面支持中英文双语，根据浏览器语言自动切换
 
 ## 安装
 
@@ -47,10 +52,14 @@ git clone https://github.com/<your-username>/homarr-helper.git
 项目为纯 Manifest V3 扩展，无构建步骤，直接修改源文件后在扩展管理页刷新即可。
 
 ```
-├── manifest.json        # 扩展清单
-├── background.js        # Service Worker（API 调用）
-├── popup.html / popup.js   # 弹出编辑框
+├── manifest.json              # 扩展清单
+├── background.js              # Service Worker（API 调用）
+├── popup.html / popup.js      # 弹出编辑框
 ├── options.html / options.js  # 设置页面
+├── i18n.js                    # HTML 国际化属性处理
+├── _locales/
+│   ├── zh_CN/messages.json    # 中文（简体）语言资源
+│   └── en/messages.json       # 英文语言资源
 └── icon48.png / icon128.png   # 图标
 ```
 
