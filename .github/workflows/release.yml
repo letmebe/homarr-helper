@@ -33,8 +33,10 @@ jobs:
             popup.js \
             options.html \
             options.js \
+            i18n.js \
             icon48.png \
-            icon128.png
+            icon128.png \
+            _locales/
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2

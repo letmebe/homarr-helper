@@ -14,6 +14,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   const settingsBtn = document.getElementById('settingsBtn');
   const configLink = document.getElementById('configLink');
 
+  const t = chrome.i18n.getMessage.bind(chrome.i18n);
+
   // ── 打开设置页 ──
   const openSettings = () => chrome.runtime.openOptionsPage();
   settingsBtn.addEventListener('click', openSettings);
@@ -42,7 +44,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     formEl.style.display = 'none';
     actionsEl.style.display = 'none';
     noticeEl.style.display = 'block';
-    noticeEl.textContent = '无法在此页面使用';
+    noticeEl.textContent = t('popup_notice_unusable');
     return;
   }
 
@@ -100,7 +102,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     for (const b of boards) {
       const opt = document.createElement('option');
       opt.value = b.id;
-      opt.textContent = b.name + (b.isHome ? ' (首页)' : '');
+      opt.textContent = b.name + (b.isHome ? t('popup_home_suffix') : '');
       boardSelect.appendChild(opt);
     }
 
@@ -113,7 +115,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       if (home) boardSelect.value = home.id;
     }
   } catch (err) {
-    boardSelect.innerHTML = `<option value="">加载失败</option>`;
+    boardSelect.innerHTML = `<option value="">${t('popup_load_failed')}</option>`;
   }
 
   // 显示表单
@@ -131,12 +133,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     const iconUrl = iconInput.value.trim();
     const boardId = boardSelect.value;
 
-    if (!name) { showStatus('请输入应用名称', 'error'); return; }
-    if (!href) { showStatus('请输入链接地址', 'error'); return; }
-    if (!boardId) { showStatus('请选择目标面板', 'error'); return; }
+    if (!name) { showStatus(t('popup_error_no_name'), 'error'); return; }
+    if (!href) { showStatus(t('popup_error_no_url'), 'error'); return; }
+    if (!boardId) { showStatus(t('popup_error_no_board'), 'error'); return; }
 
     addBtn.disabled = true;
-    showStatus('添加中...', 'loading');
+    showStatus(t('popup_adding'), 'loading');
 
     try {
       const resp = await chrome.runtime.sendMessage({
@@ -153,10 +155,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       if (resp.error) throw new Error(resp.error);
 
-      showStatus('添加成功!', 'success');
+      showStatus(t('popup_success'), 'success');
       setTimeout(() => window.close(), 1200);
     } catch (err) {
-      showStatus('失败: ' + err.message, 'error');
+      showStatus(t('popup_failed', [err.message]), 'error');
       addBtn.disabled = false;
     }
   });
@@ -168,8 +170,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   });
 
-  function showStatus(msg, type) {
-    statusEl.textContent = msg;
+  function showStatus(msgText, type) {
+    statusEl.textContent = msgText;
     statusEl.className = 'status ' + type;
   }
 });

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
 <head>
   <meta charset="UTF-8">
-  <title>Homarr Helper 设置</title>
+  <title data-i18n="options_title"></title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -103,28 +103,29 @@
 
   <div class="card">
     <div class="field">
-      <label for="homarrUrl">Homarr 服务器地址</label>
+      <label for="homarrUrl" data-i18n="options_label_url"></label>
       <input type="url" id="homarrUrl" placeholder="http://192.168.18.18:7575">
     </div>
     <div class="field">
-      <label for="apiKey">API Key</label>
-      <input type="password" id="apiKey" placeholder="在 Homarr 管理面板中获取">
+      <label for="apiKey" data-i18n="options_label_apikey"></label>
+      <input type="password" id="apiKey" data-i18n-placeholder="options_placeholder_apikey">
     </div>
     <div class="field">
-      <label for="boardId">目标面板</label>
+      <label for="boardId" data-i18n="options_label_board"></label>
       <select id="boardId">
-        <option value="">加载中...</option>
+        <option value="" data-i18n="popup_loading"></option>
       </select>
-      <div class="hint">留空则自动使用 Homarr 首页面板</div>
+      <div class="hint" data-i18n="options_hint_board"></div>
     </div>
   </div>
 
   <div class="actions">
-    <button class="btn btn-primary" id="saveBtn">保存设置</button>
-    <button class="btn btn-secondary" id="testBtn">测试连接</button>
+    <button class="btn btn-primary" id="saveBtn" data-i18n="options_save"></button>
+    <button class="btn btn-secondary" id="testBtn" data-i18n="options_test"></button>
     <span class="status" id="status"></span>
   </div>
 
+  <script src="i18n.js"></script>
   <script src="options.js"></script>
 </body>
 </html>

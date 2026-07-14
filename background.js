@@ -1,6 +1,8 @@
 // Homarr Helper - Background Service Worker
 // 响应 popup 发来的 API 请求
 
+const t = chrome.i18n.getMessage.bind(chrome.i18n);
+
 // ── 监听来自 popup 的消息 ──
 chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   if (msg.type === 'addToHomarr') {
@@ -26,7 +28,7 @@ async function handleAdd(data) {
   const settings = await getSettings();
 
   if (!settings.homarrUrl || !settings.apiKey) {
-    throw new Error('请先在设置中填写服务器地址和 API Key');
+    throw new Error(t('bg_error_no_config'));
   }
 
   // 1. 创建应用
@@ -58,7 +60,7 @@ async function handleAdd(data) {
 async function fetchBoards(data) {
   const settings = await getSettings();
   if (!settings.homarrUrl || !settings.apiKey) {
-    throw new Error('未配置服务器');
+    throw new Error(t('bg_error_no_server'));
   }
   const boards = await apiCall(settings, 'GET', '/api/boards');
   return { boards };
@@ -80,8 +82,8 @@ async function apiCall(settings, method, path, body) {
   const data = await res.json().catch(() => null);
 
   if (!res.ok) {
-    const msg = (data && data.message) ? data.message : `HTTP ${res.status}`;
-    throw new Error(msg);
+    const message = (data && data.message) ? data.message : `HTTP ${res.status}`;
+    throw new Error(message);
   }
   return data;
 }
@@ -112,7 +114,7 @@ chrome.runtime.onInstalled.addListener((details) => {
 chrome.runtime.onInstalled.addListener(() => {
   chrome.contextMenus.create({
     id: 'homarr-options',
-    title: 'Homarr Helper 设置',
+    title: t('bg_context_menu'),
     contexts: ['action']
   });
 });

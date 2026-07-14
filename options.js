@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   const testBtn = document.getElementById('testBtn');
   const status = document.getElementById('status');
 
+  const t = chrome.i18n.getMessage.bind(chrome.i18n);
+
   // Load saved settings
   const stored = await chrome.storage.local.get({
     homarrUrl: '',
@@ -20,7 +22,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (stored.homarrUrl && stored.apiKey) {
     await loadBoards(stored.homarrUrl, stored.apiKey, stored.boardId);
   } else {
-    boardSelect.innerHTML = '<option value="">请先填写服务器地址和 API Key</option>';
+    boardSelect.innerHTML = `<option value="">${t('options_fill_first')}</option>`;
   }
 
   // Auto-reload boards when URL or key changes (on blur)
@@ -43,12 +45,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     };
 
     if (!settings.homarrUrl || !settings.apiKey) {
-      showStatus('请填写服务器地址和 API Key', 'error');
+      showStatus(t('options_error_fill'), 'error');
       return;
     }
 
     await chrome.storage.local.set(settings);
-    showStatus('设置已保存', 'success');
+    showStatus(t('options_saved'), 'success');
   });
 
   // Test connection
@@ -57,11 +59,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     const key = keyInput.value.trim();
 
     if (!url || !key) {
-      showStatus('请先填写服务器地址和 API Key', 'error');
+      showStatus(t('options_error_fill'), 'error');
       return;
     }
 
-    showStatus('测试中...', 'loading');
+    showStatus(t('options_testing'), 'loading');
 
     try {
       const res = await fetch(url + '/api/boards', {
@@ -74,9 +76,9 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
 
       const boards = await res.json();
-      showStatus(`连接成功，发现 ${boards.length} 个面板`, 'success');
+      showStatus(t('options_test_success', [String(boards.length)]), 'success');
     } catch (err) {
-      showStatus(`连接失败: ${err.message}`, 'error');
+      showStatus(t('options_test_failed', [err.message]), 'error');
     }
   });
 
@@ -90,21 +92,21 @@ document.addEventListener('DOMContentLoaded', async () => {
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
       const boards = await res.json();
-      boardSelect.innerHTML = '<option value="">自动 (首页面板)</option>';
+      boardSelect.innerHTML = `<option value="">${t('options_auto_home')}</option>`;
       for (const b of boards) {
         const opt = document.createElement('option');
         opt.value = b.id;
-        opt.textContent = b.name + (b.isHome ? ' (首页)' : '');
+        opt.textContent = b.name + (b.isHome ? t('popup_home_suffix') : '');
         if (b.id === selectedId) opt.selected = true;
         boardSelect.appendChild(opt);
       }
     } catch (err) {
-      boardSelect.innerHTML = `<option value="">加载失败: ${err.message}</option>`;
+      boardSelect.innerHTML = `<option value="">${t('options_load_failed', [err.message])}</option>`;
     }
   }
 
-  function showStatus(msg, type) {
-    status.textContent = msg;
+  function showStatus(msgText, type) {
+    status.textContent = msgText;
     status.className = 'status ' + type;
     if (type === 'success') {
       setTimeout(() => { status.className = 'status'; }, 3000);

@@ -1,0 +1,198 @@
+{
+  "extensionName": {
+    "message": "Homarr Helper",
+    "description": "Extension name"
+  },
+  "extensionDescription": {
+    "message": "一键将当前页面添加到 Homarr 导航面板",
+    "description": "Extension description"
+  },
+  "addToHomarr": {
+    "message": "添加到 Homarr",
+    "description": "Popup header title and action tooltip"
+  },
+  "popup_settings": {
+    "message": "设置",
+    "description": "Settings button tooltip in popup header"
+  },
+  "popup_config_link": {
+    "message": "配置服务器地址和 API Key",
+    "description": "Clickable link text to open settings"
+  },
+  "popup_notice_unusable": {
+    "message": "无法在此页面使用",
+    "description": "Notice when on a non-HTTP page"
+  },
+  "popup_label_name": {
+    "message": "应用名称",
+    "description": "App name field label"
+  },
+  "popup_placeholder_title": {
+    "message": "页面标题",
+    "description": "App name input placeholder"
+  },
+  "popup_label_url": {
+    "message": "链接地址",
+    "description": "URL field label"
+  },
+  "popup_label_icon": {
+    "message": "图标 URL",
+    "description": "Icon URL field label"
+  },
+  "popup_placeholder_auto": {
+    "message": "自动获取",
+    "description": "Icon URL input placeholder"
+  },
+  "popup_label_board": {
+    "message": "目标面板",
+    "description": "Board selector label"
+  },
+  "popup_loading": {
+    "message": "加载中...",
+    "description": "Loading placeholder"
+  },
+  "popup_load_failed": {
+    "message": "加载失败",
+    "description": "Board load failure text"
+  },
+  "popup_home_suffix": {
+    "message": " (首页)",
+    "description": "Suffix appended to home board name"
+  },
+  "popup_cancel": {
+    "message": "取消",
+    "description": "Cancel button text"
+  },
+  "popup_add": {
+    "message": "添加",
+    "description": "Add button text"
+  },
+  "popup_error_no_name": {
+    "message": "请输入应用名称",
+    "description": "Validation error: missing app name"
+  },
+  "popup_error_no_url": {
+    "message": "请输入链接地址",
+    "description": "Validation error: missing URL"
+  },
+  "popup_error_no_board": {
+    "message": "请选择目标面板",
+    "description": "Validation error: no board selected"
+  },
+  "popup_adding": {
+    "message": "添加中...",
+    "description": "Status while adding app"
+  },
+  "popup_success": {
+    "message": "添加成功!",
+    "description": "Success status message"
+  },
+  "popup_failed": {
+    "message": "失败: $1",
+    "description": "Failure status message",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "error details"
+      }
+    }
+  },
+  "options_title": {
+    "message": "Homarr Helper 设置",
+    "description": "Options page title"
+  },
+  "options_label_url": {
+    "message": "Homarr 服务器地址",
+    "description": "Server URL field label"
+  },
+  "options_label_apikey": {
+    "message": "API Key",
+    "description": "API Key field label"
+  },
+  "options_placeholder_apikey": {
+    "message": "在 Homarr 管理面板中获取",
+    "description": "API Key input placeholder"
+  },
+  "options_label_board": {
+    "message": "目标面板",
+    "description": "Board selector label"
+  },
+  "options_hint_board": {
+    "message": "留空则自动使用 Homarr 首页面板",
+    "description": "Board selector hint text"
+  },
+  "options_save": {
+    "message": "保存设置",
+    "description": "Save button text"
+  },
+  "options_test": {
+    "message": "测试连接",
+    "description": "Test connection button text"
+  },
+  "options_error_fill": {
+    "message": "请填写服务器地址和 API Key",
+    "description": "Validation: missing URL or key"
+  },
+  "options_saved": {
+    "message": "设置已保存",
+    "description": "Save success message"
+  },
+  "options_testing": {
+    "message": "测试中...",
+    "description": "Testing connection status"
+  },
+  "options_test_success": {
+    "message": "连接成功，发现 $1$ 个面板",
+    "description": "Test connection success",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "options_test_failed": {
+    "message": "连接失败: $1$",
+    "description": "Test connection failure",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "error details"
+      }
+    }
+  },
+  "options_auto_home": {
+    "message": "自动 (首页面板)",
+    "description": "Auto-select home board option"
+  },
+  "options_load_failed": {
+    "message": "加载失败: $1$",
+    "description": "Board list load failure",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "error details"
+      }
+    }
+  },
+  "options_fill_first": {
+    "message": "请先填写服务器地址和 API Key",
+    "description": "Board selector placeholder when no config"
+  },
+  "bg_error_no_config": {
+    "message": "请先在设置中填写服务器地址和 API Key",
+    "description": "Background error: not configured"
+  },
+  "bg_error_no_server": {
+    "message": "未配置服务器",
+    "description": "Background error: no server"
+  },
+  "bg_context_menu": {
+    "message": "Homarr Helper 设置",
+    "description": "Context menu item text"
+  },
+  "popup_notice_config_prefix": {
+    "message": "请先",
+    "description": "Prefix before config link in notice"
+  }
+}

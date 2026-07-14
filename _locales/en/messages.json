@@ -1,0 +1,198 @@
+{
+  "extensionName": {
+    "message": "Homarr Helper",
+    "description": "Extension name"
+  },
+  "extensionDescription": {
+    "message": "Add the current page to Homarr dashboard with one click",
+    "description": "Extension description"
+  },
+  "addToHomarr": {
+    "message": "Add to Homarr",
+    "description": "Popup header title and action tooltip"
+  },
+  "popup_settings": {
+    "message": "Settings",
+    "description": "Settings button tooltip in popup header"
+  },
+  "popup_config_link": {
+    "message": "Configure server URL and API Key",
+    "description": "Clickable link text to open settings"
+  },
+  "popup_notice_unusable": {
+    "message": "Cannot use on this page",
+    "description": "Notice when on a non-HTTP page"
+  },
+  "popup_label_name": {
+    "message": "App Name",
+    "description": "App name field label"
+  },
+  "popup_placeholder_title": {
+    "message": "Page title",
+    "description": "App name input placeholder"
+  },
+  "popup_label_url": {
+    "message": "URL",
+    "description": "URL field label"
+  },
+  "popup_label_icon": {
+    "message": "Icon URL",
+    "description": "Icon URL field label"
+  },
+  "popup_placeholder_auto": {
+    "message": "Auto-detect",
+    "description": "Icon URL input placeholder"
+  },
+  "popup_label_board": {
+    "message": "Target Board",
+    "description": "Board selector label"
+  },
+  "popup_loading": {
+    "message": "Loading...",
+    "description": "Loading placeholder"
+  },
+  "popup_load_failed": {
+    "message": "Load failed",
+    "description": "Board load failure text"
+  },
+  "popup_home_suffix": {
+    "message": " (Home)",
+    "description": "Suffix appended to home board name"
+  },
+  "popup_cancel": {
+    "message": "Cancel",
+    "description": "Cancel button text"
+  },
+  "popup_add": {
+    "message": "Add",
+    "description": "Add button text"
+  },
+  "popup_error_no_name": {
+    "message": "Please enter an app name",
+    "description": "Validation error: missing app name"
+  },
+  "popup_error_no_url": {
+    "message": "Please enter a URL",
+    "description": "Validation error: missing URL"
+  },
+  "popup_error_no_board": {
+    "message": "Please select a target board",
+    "description": "Validation error: no board selected"
+  },
+  "popup_adding": {
+    "message": "Adding...",
+    "description": "Status while adding app"
+  },
+  "popup_success": {
+    "message": "Added successfully!",
+    "description": "Success status message"
+  },
+  "popup_failed": {
+    "message": "Failed: $1$",
+    "description": "Failure status message",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "error details"
+      }
+    }
+  },
+  "options_title": {
+    "message": "Homarr Helper Settings",
+    "description": "Options page title"
+  },
+  "options_label_url": {
+    "message": "Homarr Server URL",
+    "description": "Server URL field label"
+  },
+  "options_label_apikey": {
+    "message": "API Key",
+    "description": "API Key field label"
+  },
+  "options_placeholder_apikey": {
+    "message": "Get it from Homarr admin panel",
+    "description": "API Key input placeholder"
+  },
+  "options_label_board": {
+    "message": "Target Board",
+    "description": "Board selector label"
+  },
+  "options_hint_board": {
+    "message": "Leave empty to use Homarr home board",
+    "description": "Board selector hint text"
+  },
+  "options_save": {
+    "message": "Save Settings",
+    "description": "Save button text"
+  },
+  "options_test": {
+    "message": "Test Connection",
+    "description": "Test connection button text"
+  },
+  "options_error_fill": {
+    "message": "Please fill in server URL and API Key",
+    "description": "Validation: missing URL or key"
+  },
+  "options_saved": {
+    "message": "Settings saved",
+    "description": "Save success message"
+  },
+  "options_testing": {
+    "message": "Testing...",
+    "description": "Testing connection status"
+  },
+  "options_test_success": {
+    "message": "Connected, found $1$ board(s)",
+    "description": "Test connection success",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "options_test_failed": {
+    "message": "Connection failed: $1$",
+    "description": "Test connection failure",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "error details"
+      }
+    }
+  },
+  "options_auto_home": {
+    "message": "Auto (Home Board)",
+    "description": "Auto-select home board option"
+  },
+  "options_load_failed": {
+    "message": "Load failed: $1$",
+    "description": "Board list load failure",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "error details"
+      }
+    }
+  },
+  "options_fill_first": {
+    "message": "Please fill in server URL and API Key first",
+    "description": "Board selector placeholder when no config"
+  },
+  "bg_error_no_config": {
+    "message": "Please configure server URL and API Key in settings first",
+    "description": "Background error: not configured"
+  },
+  "bg_error_no_server": {
+    "message": "Server not configured",
+    "description": "Background error: no server"
+  },
+  "bg_context_menu": {
+    "message": "Homarr Helper Settings",
+    "description": "Context menu item text"
+  },
+  "popup_notice_config_prefix": {
+    "message": "Please",
+    "description": "Prefix before config link in notice"
+  }
+}
