@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      width: 360px;
+      background: #fafafa;
+      color: #333;
+    }
+
+    /* ── Header ── */
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 16px;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: #fff;
+    }
+    .header img {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      background: rgba(255,255,255,0.2);
+      object-fit: contain;
+    }
+    .header .title {
+      font-size: 15px;
+      font-weight: 600;
+      flex: 1;
+    }
+    .header .settings-btn {
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.8);
+      cursor: pointer;
+      font-size: 18px;
+      padding: 4px;
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+    .header .settings-btn:hover {
+      color: #fff;
+      background: rgba(255,255,255,0.15);
+    }
+
+    /* ── Form ── */
+    .form { padding: 14px 16px; }
+    .field { margin-bottom: 12px; }
+    .field label {
+      display: block;
+      font-size: 12px;
+      font-weight: 500;
+      color: #888;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+    .field input, .field select {
+      width: 100%;
+      padding: 8px 10px;
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      font-size: 13px;
+      outline: none;
+      background: #fff;
+      transition: border-color 0.2s;
+    }
+    .field input:focus, .field select:focus {
+      border-color: #6366f1;
+      box-shadow: 0 0 0 2px rgba(99,102,241,0.12);
+    }
+    .field .icon-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .field .icon-row input { flex: 1; }
+    .field .icon-preview {
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      border: 1px solid #e0e0e0;
+      object-fit: contain;
+      background: #fff;
+      flex-shrink: 0;
+    }
+
+    /* ── Actions ── */
+    .actions {
+      display: flex;
+      gap: 8px;
+      padding: 0 16px 14px;
+    }
+    .btn {
+      flex: 1;
+      padding: 9px 16px;
+      border: none;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: #fff;
+    }
+    .btn-primary:hover { opacity: 0.9; }
+    .btn-primary:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .btn-cancel {
+      background: #f0f0f0;
+      color: #666;
+    }
+    .btn-cancel:hover { background: #e5e5e5; }
+
+    /* ── Status ── */
+    .status {
+      text-align: center;
+      font-size: 12px;
+      padding: 8px 16px;
+      display: none;
+    }
+    .status.success { display: block; color: #2e7d32; background: #e8f5e9; }
+    .status.error { display: block; color: #c62828; background: #ffebee; }
+    .status.loading { display: block; color: #1565c0; background: #e3f2fd; }
+
+    /* ── Unconfigured notice ── */
+    .notice {
+      padding: 20px 16px;
+      text-align: center;
+      color: #888;
+      font-size: 13px;
+    }
+    .notice a {
+      color: #6366f1;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img src="icon48.png" alt="">
+    <span class="title">添加到 Homarr</span>
+    <button class="settings-btn" id="settingsBtn" title="设置">&#9881;</button>
+  </div>
+
+  <!-- 未配置提示 -->
+  <div class="notice" id="notice" style="display:none;">
+    请先 <a id="configLink">配置服务器地址和 API Key</a>
+  </div>
+
+  <!-- 编辑表单 -->
+  <div class="form" id="form" style="display:none;">
+    <div class="field">
+      <label>应用名称</label>
+      <input type="text" id="appName" maxlength="64" placeholder="页面标题">
+    </div>
+    <div class="field">
+      <label>链接地址</label>
+      <input type="url" id="appUrl" placeholder="https://...">
+    </div>
+    <div class="field">
+      <label>图标 URL</label>
+      <div class="icon-row">
+        <input type="url" id="appIcon" placeholder="自动获取">
+        <img class="icon-preview" id="iconPreview" src="" alt="">
+      </div>
+    </div>
+    <div class="field">
+      <label>目标面板</label>
+      <select id="boardSelect">
+        <option value="">加载中...</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="actions" id="actions" style="display:none;">
+    <button class="btn btn-cancel" id="cancelBtn">取消</button>
+    <button class="btn btn-primary" id="addBtn">添加</button>
+  </div>
+
+  <div class="status" id="status"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
