@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', async () => {
+  // 等待 i18n 核心初始化（i18n.js 已触发，但确保完成）
+  await window.I18N.initI18n();
+
   const formEl = document.getElementById('form');
   const actionsEl = document.getElementById('actions');
   const noticeEl = document.getElementById('notice');
@@ -13,8 +16,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   const cancelBtn = document.getElementById('cancelBtn');
   const settingsBtn = document.getElementById('settingsBtn');
   const configLink = document.getElementById('configLink');
-
-  const t = chrome.i18n.getMessage.bind(chrome.i18n);
 
   // ── 打开设置页 ──
   const openSettings = () => chrome.runtime.openOptionsPage();
@@ -110,7 +111,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (defaultBoardId) {
       boardSelect.value = defaultBoardId;
     } else {
-      // 自动选首页面板
       const home = boards.find(b => b.isHome);
       if (home) boardSelect.value = home.id;
     }

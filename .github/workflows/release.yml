@@ -33,6 +33,7 @@ jobs:
             popup.js \
             options.html \
             options.js \
+            i18n-core.js \
             i18n.js \
             icon48.png \
             icon128.png \

@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', async () => {
+  await window.I18N.initI18n();
+
+  const langSelect = document.getElementById('langSelect');
   const urlInput = document.getElementById('homarrUrl');
   const keyInput = document.getElementById('apiKey');
   const boardSelect = document.getElementById('boardId');
@@ -6,15 +9,15 @@ document.addEventListener('DOMContentLoaded', async () => {
   const testBtn = document.getElementById('testBtn');
   const status = document.getElementById('status');
 
-  const t = chrome.i18n.getMessage.bind(chrome.i18n);
-
   // Load saved settings
   const stored = await chrome.storage.local.get({
+    lang: 'auto',
     homarrUrl: '',
     apiKey: '',
     boardId: ''
   });
 
+  langSelect.value = stored.lang;
   urlInput.value = stored.homarrUrl;
   keyInput.value = stored.apiKey;
 
@@ -36,9 +39,16 @@ document.addEventListener('DOMContentLoaded', async () => {
   urlInput.addEventListener('blur', refreshBoards);
   keyInput.addEventListener('blur', refreshBoards);
 
+  // Language change → save + reload page to apply
+  langSelect.addEventListener('change', async () => {
+    await chrome.storage.local.set({ lang: langSelect.value });
+    location.reload();
+  });
+
   // Save
   saveBtn.addEventListener('click', async () => {
     const settings = {
+      lang: langSelect.value,
       homarrUrl: urlInput.value.trim().replace(/\/+$/, ''),
       apiKey: keyInput.value.trim(),
       boardId: boardSelect.value

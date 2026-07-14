@@ -1,33 +1,34 @@
-// i18n helper - processes data-i18n and data-i18n-* attributes in HTML
-(function () {
-  const msg = chrome.i18n.getMessage.bind(chrome.i18n);
+// i18n.js — HTML 国际化属性处理器
+// 等待 i18n-core 初始化后，处理 data-i18n / data-i18n-title / data-i18n-placeholder
 
-  document.addEventListener('DOMContentLoaded', () => {
-    // Set text content for elements with data-i18n
+(function () {
+  async function processAttributes() {
+    await window.I18N.initI18n();
+
+    // 设置文本内容
     document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.getAttribute('data-i18n');
-      const text = msg(key);
+      const text = window.t(el.getAttribute('data-i18n'));
       if (text) el.textContent = text;
     });
 
-    // Set title attribute for elements with data-i18n-title
+    // 设置 title 属性
     document.querySelectorAll('[data-i18n-title]').forEach(el => {
-      const key = el.getAttribute('data-i18n-title');
-      const text = msg(key);
+      const text = window.t(el.getAttribute('data-i18n-title'));
       if (text) el.title = text;
     });
 
-    // Set placeholder attribute for elements with data-i18n-placeholder
+    // 设置 placeholder 属性
     document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-      const key = el.getAttribute('data-i18n-placeholder');
-      const text = msg(key);
+      const text = window.t(el.getAttribute('data-i18n-placeholder'));
       if (text) el.placeholder = text;
     });
 
-    // Set document title if <title> has data-i18n
+    // 设置 <title> 标签
     const titleEl = document.querySelector('title[data-i18n]');
     if (titleEl) {
-      document.title = msg(titleEl.getAttribute('data-i18n'));
+      document.title = window.t(titleEl.getAttribute('data-i18n'));
     }
-  });
+  }
+
+  document.addEventListener('DOMContentLoaded', processAttributes);
 })();

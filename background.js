@@ -1,7 +1,9 @@
 // Homarr Helper - Background Service Worker
 // 响应 popup 发来的 API 请求
 
-const t = chrome.i18n.getMessage.bind(chrome.i18n);
+// 初始化 i18n（加载语言资源）
+importScripts('i18n-core.js');
+const _bgInit = window.I18N.initI18n();
 
 // ── 监听来自 popup 的消息 ──
 chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
@@ -9,7 +11,7 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
     handleAdd(msg.data).then(sendResponse).catch(err => {
       sendResponse({ error: err.message });
     });
-    return true; // keep channel open for async response
+    return true;
   }
   if (msg.type === 'getSettings') {
     getSettings().then(sendResponse);
@@ -25,13 +27,13 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
 
 // ── 核心：创建应用并添加到面板 ──
 async function handleAdd(data) {
+  await _bgInit;
   const settings = await getSettings();
 
   if (!settings.homarrUrl || !settings.apiKey) {
     throw new Error(t('bg_error_no_config'));
   }
 
-  // 1. 创建应用
   const appPayload = {
     name: (data.name || 'Untitled').slice(0, 64),
     description: data.description || '',
@@ -42,7 +44,6 @@ async function handleAdd(data) {
 
   const appResult = await apiCall(settings, 'POST', '/api/apps', appPayload);
 
-  // 2. 添加到面板
   await apiCall(settings, 'POST', '/api/boards/items', {
     boardId: data.boardId,
     kind: 'app',
@@ -50,7 +51,6 @@ async function handleAdd(data) {
     integrationIds: []
   });
 
-  // 3. 记住上次使用的面板
   await chrome.storage.local.set({ lastUsedBoardId: data.boardId });
 
   return { success: true, appId: appResult.appId };
@@ -58,6 +58,7 @@ async function handleAdd(data) {
 
 // ── 获取面板列表 ──
 async function fetchBoards(data) {
+  await _bgInit;
   const settings = await getSettings();
   if (!settings.homarrUrl || !settings.apiKey) {
     throw new Error(t('bg_error_no_server'));
@@ -95,7 +96,6 @@ async function getSettings() {
     apiKey: '',
     boardId: ''
   });
-  // 优先用上次使用的面板
   if (!stored.boardId) {
     const extra = await chrome.storage.local.get('lastUsedBoardId');
     if (extra.lastUsedBoardId) stored.boardId = extra.lastUsedBoardId;
@@ -112,10 +112,12 @@ chrome.runtime.onInstalled.addListener((details) => {
 
 // ── 右键菜单快捷入口 ──
 chrome.runtime.onInstalled.addListener(() => {
-  chrome.contextMenus.create({
-    id: 'homarr-options',
-    title: t('bg_context_menu'),
-    contexts: ['action']
+  _bgInit.then(() => {
+    chrome.contextMenus.create({
+      id: 'homarr-options',
+      title: t('bg_context_menu'),
+      contexts: ['action']
+    });
   });
 });
 

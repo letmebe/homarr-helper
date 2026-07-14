@@ -194,5 +194,13 @@
   "popup_notice_config_prefix": {
     "message": "Please",
     "description": "Prefix before config link in notice"
+  },
+  "options_label_lang": {
+    "message": "Language",
+    "description": "Language selector label"
+  },
+  "options_lang_auto": {
+    "message": "Auto (follow browser)",
+    "description": "Auto language option"
   }
 }
