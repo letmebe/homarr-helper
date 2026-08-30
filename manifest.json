@@ -6,6 +6,7 @@
   "description": "__MSG_extensionDescription__",
   "permissions": [
     "activeTab",
+    "tabs",
     "storage",
     "scripting",
     "contextMenus"
@@ -19,6 +20,9 @@
     "default_title": "__MSG_addToHomarr__"
   },
   "options_page": "options.html",
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  },
   "background": {
     "service_worker": "background.js"
   },

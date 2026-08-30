@@ -202,5 +202,21 @@
   "options_lang_auto": {
     "message": "自动（跟随浏览器）",
     "description": "Auto language option"
+  },
+  "newtab_redirecting": {
+    "message": "正在跳转...",
+    "description": "Loading text while redirecting to Homarr"
+  },
+  "newtab_no_url": {
+    "message": "请先在设置中配置 Homarr 导航页地址",
+    "description": "Shown when no Homarr URL is configured"
+  },
+  "newtab_open_settings": {
+    "message": "打开设置",
+    "description": "Link to open extension settings"
+  },
+  "newtab_error": {
+    "message": "出错了",
+    "description": "Error prefix text"
   }
 }

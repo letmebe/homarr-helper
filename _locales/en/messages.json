@@ -202,5 +202,21 @@
   "options_lang_auto": {
     "message": "Auto (follow browser)",
     "description": "Auto language option"
+  },
+  "newtab_redirecting": {
+    "message": "Redirecting...",
+    "description": "Loading text while redirecting to Homarr"
+  },
+  "newtab_no_url": {
+    "message": "Please configure your Homarr URL in settings first",
+    "description": "Shown when no Homarr URL is configured"
+  },
+  "newtab_open_settings": {
+    "message": "Open settings",
+    "description": "Link to open extension settings"
+  },
+  "newtab_error": {
+    "message": "Error",
+    "description": "Error prefix text"
   }
 }

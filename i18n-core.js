@@ -31,8 +31,9 @@
     if (!entry) return key;
     let text = entry.message;
     if (substitutions) {
-      substitutions.forEach((val, i) => {
-        text = text.replace(new RegExp(`\$${i + 1}\$`, 'g'), val);
+      Object.entries(substitutions).forEach(([key, val]) => {
+        const num = Number(key) + 1;
+        text = text.replace(new RegExp(`\\$${num}\\$`, 'g'), val);
       });
     }
     return text;
