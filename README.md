@@ -47,6 +47,12 @@ git clone https://github.com/<your-username>/homarr-helper.git
 3. 在弹出框中确认或修改应用名称、链接、图标
 4. 选择目标面板，点击「添加」
 
+## 批量导入
+
+需要一次性迁移大批量书签？可以使用附带的命令行工具 **importToHomarr**：只要数据能整理成 Excel（至少包含 URL 列），即可自动检测可用性、匹配图标、按面板批量导入 Homarr。
+
+详见 [tools/importToHomarr/README.md](tools/importToHomarr/README.md)。
+
 ## 开发
 
 项目为纯 Manifest V3 扩展，无构建步骤，直接修改源文件后在扩展管理页刷新即可。
@@ -56,11 +62,14 @@ git clone https://github.com/<your-username>/homarr-helper.git
 ├── background.js              # Service Worker（API 调用）
 ├── popup.html / popup.js      # 弹出编辑框
 ├── options.html / options.js  # 设置页面
-├── i18n.js                    # HTML 国际化属性处理
+├── newtab.html / newtab.js    # 新标签页跳转
+├── i18n.js / i18n-core.js     # 国际化（HTML 属性处理 / 核心取词）
 ├── _locales/
 │   ├── zh_CN/messages.json    # 中文（简体）语言资源
 │   └── en/messages.json       # 英文语言资源
-└── icon48.png / icon128.png   # 图标
+├── icon48.png / icon128.png   # 图标
+└── tools/
+    └── importToHomarr/        # 批量导入命令行工具（独立使用，非扩展依赖）
 ```
 
 ## License
