@@ -22,7 +22,7 @@ A browser extension that adds the current page to your [Homarr](https://github.c
 ### Option 2: Load from Source
 
 ```bash
-git clone https://github.com/<your-username>/homarr-helper.git
+git clone https://github.com/letmebe/homarr-helper.git
 ```
 
 Then load the project directory from `chrome://extensions/`.

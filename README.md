@@ -26,7 +26,7 @@ A browser extension that adds the current page to your [Homarr](https://github.c
 ### 方式二：从源码加载
 
 ```bash
-git clone https://github.com/<your-username>/homarr-helper.git
+git clone https://github.com/letmebe/homarr-helper.git
 ```
 
 然后在 `chrome://extensions/` 加载项目目录。
