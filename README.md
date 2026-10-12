@@ -38,7 +38,7 @@ git clone https://github.com/letmebe/homarr-helper.git
 - **Homarr 服务器地址** — 例如 `http://192.168.18.18:7575`
 - **API Key** — 在 Homarr 管理面板 → 工具 → API 中创建
 
-点击「测试连接」确认通过后保存即可。
+点击「测试连接」确认通过后保存即可。首次测试或保存某个地址时，浏览器会询问是否允许访问该地址——扩展只申请你填写的这一个地址的权限，可随时在浏览器扩展设置中撤销。
 
 ## 使用
 
@@ -82,4 +82,4 @@ git clone https://github.com/letmebe/homarr-helper.git
 
 ## License
 
-MIT
+MIT — 详见 [LICENSE](LICENSE)。
