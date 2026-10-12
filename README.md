@@ -72,6 +72,14 @@ git clone https://github.com/letmebe/homarr-helper.git
     └── importToHomarr/        # 批量导入命令行工具（独立使用，非扩展依赖）
 ```
 
+## 声明 / Disclaimer
+
+- Homarr Helper 是社区开发的第三方工具，**与 Homarr 官方（homarr-labs）无任何隶属、合作或背书关系**。
+  Homarr Helper is an independent, community-made tool. It is **not affiliated with, endorsed by, or sponsored by** the Homarr project (homarr-labs).
+- "Homarr" 名称仅在描述本工具所服务的目标软件时作指代使用（nominative use）；Homarr 名称与标志的权利归其各自所有者。本扩展图标为原创设计，未使用 Homarr 官方标志。
+  The "Homarr" name is used solely to identify the software this extension integrates with. All rights in the Homarr name and logo belong to their respective owners. The extension icon is an original design and does not use the official Homarr logo.
+- 本项目代码以 MIT 协议开源；Homarr 本身采用 Apache-2.0 协议，其商标权利不受代码协议约束。
+
 ## License
 
 MIT
