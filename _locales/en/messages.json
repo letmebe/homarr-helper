@@ -218,5 +218,17 @@
   "newtab_error": {
     "message": "Error",
     "description": "Error prefix text"
+  },
+  "options_perm_denied": {
+    "message": "Permission to access this address was denied. Click \"Allow\" in the browser prompt to continue.",
+    "description": "Shown when the host permission request is denied"
+  },
+  "options_perm_hint": {
+    "message": "Click \"Test connection\" or \"Save\" first to grant access to this address",
+    "description": "Hint to grant host permission first"
+  },
+  "bg_error_no_permission": {
+    "message": "Access to this server is not granted yet. Open the extension settings and save again.",
+    "description": "Background error: host permission not granted"
   }
 }

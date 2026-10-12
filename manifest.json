@@ -6,12 +6,11 @@
   "description": "__MSG_extensionDescription__",
   "permissions": [
     "activeTab",
-    "tabs",
     "storage",
     "scripting",
     "contextMenus"
   ],
-  "host_permissions": [
+  "optional_host_permissions": [
     "http://*/*",
     "https://*/*"
   ],

@@ -218,5 +218,17 @@
   "newtab_error": {
     "message": "出错了",
     "description": "Error prefix text"
+  },
+  "options_perm_denied": {
+    "message": "未获得访问该地址的权限，请在浏览器弹窗中点击「允许」",
+    "description": "Shown when the host permission request is denied"
+  },
+  "options_perm_hint": {
+    "message": "请先点击「测试连接」或「保存设置」以授权访问该地址",
+    "description": "Hint to grant host permission first"
+  },
+  "bg_error_no_permission": {
+    "message": "尚未授权访问该服务器，请打开扩展设置页重新保存",
+    "description": "Background error: host permission not granted"
   }
 }

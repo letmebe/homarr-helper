@@ -67,9 +67,25 @@ async function fetchBoards(data) {
   return { boards };
 }
 
+// ── Host 权限检查：MV3 中跨源 fetch 需要对应 origin 的授权 ──
+async function hasHostPermission(url) {
+  try {
+    const u = new URL(url);
+    if (u.protocol !== 'http:' && u.protocol !== 'https:') return true;
+    return await chrome.permissions.contains({ origins: [u.origin + '/*'] });
+  } catch (e) {
+    return true; // URL 解析失败时交给 fetch 自行报错
+  }
+}
+
 // ── API 请求 ──
 async function apiCall(settings, method, path, body) {
   const url = settings.homarrUrl.replace(/\/+$/, '') + path;
+
+  if (!(await hasHostPermission(url))) {
+    throw new Error(t('bg_error_no_permission'));
+  }
+
   const opts = {
     method,
     headers: {
