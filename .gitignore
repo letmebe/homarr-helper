@@ -25,3 +25,7 @@ homarr_import/
 # Python
 __pycache__/
 *.pyc
+
+# Private notes — store submission draft and market research, kept locally only
+doc/edge-store-submission.md
+doc/prior-art.md
