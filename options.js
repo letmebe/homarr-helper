@@ -151,6 +151,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       const boards = await res.json();
       showStatus(t('options_test_success', [String(boards.length)]), 'success');
+
+      // 测试连接成功即视为连接可用，顺手把面板列表填进下拉。
+      // 首次配置时输入框的 blur 刷新会因尚未授权而提前返回（options_perm_hint），
+      // 下拉只能保持「请先填写服务器地址和 API Key」，必须由这里补上。
+      await loadBoards(url, key, boardSelect.value);
     } catch (err) {
       showStatus(t('options_test_failed', [err.message]), 'error');
     }
