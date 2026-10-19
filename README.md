@@ -11,19 +11,26 @@ A browser extension that adds the current page to your [Homarr](https://github.c
 - 点击扩展图标，弹出编辑框，自动预填页面标题、网址和图标
 - 所有字段均可手动修改后确认添加
 - 自动记忆上次使用的面板，也可手动切换
-- 支持 Chrome / Edge / Brave 等 Chromium 内核浏览器
+- Edge 用户可直接从 [Edge 扩展商店](https://microsoftedge.microsoft.com/addons/detail/nbbegamjhmmkladlhnimbioejoiggohb) 一键安装；Chrome / Brave 可从 Release 加载
 - 界面支持中英文双语，根据浏览器语言自动切换
 
 ## 安装
 
-### 方式一：从 Release 加载（推荐）
+### 方式一：从 Edge 扩展商店安装（推荐）
+
+1. 打开 [Microsoft Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/nbbegamjhmmkladlhnimbioejoiggohb)（或 [Edge 商店搜索 Homarr Helper](https://microsoftedge.microsoft.com/addons/search/Homarr%20Helper)）
+2. 点击「获取」/「Add to Chrome」，然后确认「添加扩展」
+
+安装后打开 Edge，在工具栏拼图图标里找到 Homarr Helper 并**固定到工具栏**即可使用。
+
+### 方式二：从 Release 加载
 
 1. 从 [Releases](../../releases) 页面下载最新 `homarr-helper-x.x.x.zip`
 2. 解压到任意目录
-3. 打开 `chrome://extensions/`，启用右上角「开发者模式」
+3. 打开 `chrome://extensions/`（Edge 为 `edge://extensions/`），启用右上角「开发者模式」
 4. 点击「加载已解压的扩展程序」，选择解压目录
 
-### 方式二：从源码加载
+### 方式三：从源码加载
 
 ```bash
 git clone https://github.com/letmebe/homarr-helper.git

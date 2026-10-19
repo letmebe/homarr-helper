@@ -11,19 +11,26 @@ A browser extension that adds the current page to your [Homarr](https://github.c
 - Click the extension icon to open a popup editor with the page title, URL and icon pre-filled
 - Every field can be edited before you confirm the addition
 - Automatically remembers the last used board, which you can also switch manually
-- Supports Chrome / Edge / Brave and other Chromium-based browsers
+- Edge users can install it in one click from the [Edge Add-ons store](https://microsoftedge.microsoft.com/addons/detail/nbbegamjhmmkladlhnimbioejoiggohb); Chrome / Brave users can load it from a Release
 - Bilingual UI (Chinese / English), switched automatically based on your browser language
 
 ## Installation
 
-### Option 1: Install from a Release (recommended)
+### Option 1: Install from the Edge Add-ons store (recommended)
+
+1. Open [Microsoft Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/nbbegamjhmmkladlhnimbioejoiggohb) (or [search for Homarr Helper](https://microsoftedge.microsoft.com/addons/search/Homarr%20Helper))
+2. Click "Get" / "Add to Chrome", then confirm "Add extension"
+
+After installation, open Edge, find Homarr Helper in the extensions (puzzle icon) menu and **pin it to the toolbar** for quick access.
+
+### Option 2: Install from a Release
 
 1. Download the latest `homarr-helper-x.x.x.zip` from the [Releases](https://github.com/letmebe/homarr-helper/releases) page
 2. Extract it to any folder
-3. Open `chrome://extensions/` and enable "Developer mode" in the top-right corner
+3. Open `chrome://extensions/` (`edge://extensions/` in Edge) and enable "Developer mode" in the top-right corner
 4. Click "Load unpacked" and select the extracted folder
 
-### Option 2: Load from source
+### Option 3: Load from source
 
 ```bash
 git clone https://github.com/letmebe/homarr-helper.git
