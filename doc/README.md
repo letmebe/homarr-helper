@@ -47,6 +47,32 @@ Click "Test Connection" to verify, then save. The first time you test or save an
 3. Confirm or edit the app name, URL and icon in the popup
 4. Select a target board and click "Add"
 
+## Screenshots
+
+> The UI language follows your browser. The images below show the Chinese UI.
+
+Before and after — the current page lands on your board with one click:
+
+![Before and after](store-shots/compare-en.png)
+
+Click the toolbar icon: title, URL and favicon are pre-filled, pick a board and add:
+
+![Popup editor](store-shots/popup-en.png)
+
+On first use, fill in the server address and API key, then save once "Test connection" passes:
+
+![Options page](store-shots/options-en.png)
+
+The first time the extension reaches that address the browser asks for access — only for the single address you entered:
+
+![Host permission prompt](store-shots/perm-en.png)
+
+The new tab page redirects to your configured Homarr dashboard:
+
+![New tab page](store-shots/newtab-en.png)
+
+More screenshots are available in [doc/store-shots/](store-shots/).
+
 ## Bulk import
 
 Need to migrate a large number of bookmarks at once? Use the bundled command-line tool **importToHomarr**: as long as your data can be turned into a spreadsheet (containing at least a URL column), it checks availability, matches icons and imports everything into Homarr board by board.

@@ -47,6 +47,32 @@ git clone https://github.com/letmebe/homarr-helper.git
 3. 在弹出框中确认或修改应用名称、链接、图标
 4. 选择目标面板，点击「添加」
 
+## 截图
+
+> 界面会跟随浏览器语言自动切换，以下为中文界面。
+
+添加前后对比——当前页面一键写入面板：
+
+![添加前后对比](doc/store-shots/compare-zh.png)
+
+点击工具栏图标，标题、网址与站点图标自动预填，选择目标面板即可添加：
+
+![弹出编辑框](doc/store-shots/popup-zh.png)
+
+首次使用时填写服务器地址与 API Key，「测试连接」通过后保存：
+
+![设置页面](doc/store-shots/options-zh.png)
+
+首次访问该地址时，浏览器会询问是否允许扩展访问——只申请你填写的这一个地址：
+
+![请求主机权限](doc/store-shots/perm-zh.png)
+
+新标签页会跳转到已配置的 Homarr 面板：
+
+![新标签页](doc/store-shots/newtab-zh.png)
+
+更多截图见 [doc/store-shots/](doc/store-shots/)。
+
 ## 批量导入
 
 需要一次性迁移大批量书签？可以使用附带的命令行工具 **importToHomarr**：只要数据能整理成 Excel（至少包含 URL 列），即可自动检测可用性、匹配图标、按面板批量导入 Homarr。
