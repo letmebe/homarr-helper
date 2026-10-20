@@ -80,6 +80,10 @@ The new tab page redirects to your configured Homarr dashboard:
 
 More screenshots are available in [doc/store-shots/](store-shots/).
 
+## Changelog
+
+Version changes are listed in [CHANGELOG.md](../CHANGELOG.md); the full history is on [Releases](https://github.com/letmebe/homarr-helper/releases).
+
 ## Bulk import
 
 Need to migrate a large number of bookmarks at once? Use the bundled command-line tool **importToHomarr**: as long as your data can be turned into a spreadsheet (containing at least a URL column), it checks availability, matches icons and imports everything into Homarr board by board.

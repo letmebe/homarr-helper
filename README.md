@@ -80,6 +80,10 @@ git clone https://github.com/letmebe/homarr-helper.git
 
 更多截图见 [doc/store-shots/](doc/store-shots/)。
 
+## 更新日志
+
+版本变更记录见 [CHANGELOG.md](CHANGELOG.md)，完整历史见 [Releases](../../releases)。
+
 ## 批量导入
 
 需要一次性迁移大批量书签？可以使用附带的命令行工具 **importToHomarr**：只要数据能整理成 Excel（至少包含 URL 列），即可自动检测可用性、匹配图标、按面板批量导入 Homarr。
